@@ -8,3 +8,7 @@ Shooting:
   + score 100+: 5 bullets
 ---
 You win when you have 150 score.
+---
+Controls:
+  + moving - Arrows, WASD, IJKL
+  + shooting - SPACE, SHIFT
