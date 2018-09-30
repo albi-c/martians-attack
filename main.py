@@ -48,9 +48,9 @@ won = False
 
 player = pyglet.sprite.Sprite(player_image, x=0, y=0)
 playerDied = pyglet.text.Label(text="You died!", color=[255, 0, 0, 150], bold=True, x=window.width//2, y=window.height//2, anchor_x="center", anchor_y="center", font_size=100)
-playerDiedInfo = pyglet.text.Label(text="Press any key to restart", color=[255, 0, 0, 150], x=window.width//2, y=window.height//2 - 100, anchor_x="center", anchor_y="center", font_size=50)
+playerDiedInfo = pyglet.text.Label(text="Press R to restart", color=[255, 0, 0, 150], x=window.width//2, y=window.height//2 - 100, anchor_x="center", anchor_y="center", font_size=50)
 playerWon = pyglet.text.Label(text="You won!", color=[0, 255, 0, 150], bold=True, x=window.width//2, y=window.height//2, anchor_x="center", anchor_y="center", font_size=100)
-playerWonInfo = pyglet.text.Label(text="Press any key to restart", color=[0, 255, 0, 150], x=window.width//2, y=window.height//2 - 100, anchor_x="center", anchor_y="center", font_size=50)
+playerWonInfo = pyglet.text.Label(text="Press R to restart", color=[0, 255, 0, 150], x=window.width//2, y=window.height//2 - 100, anchor_x="center", anchor_y="center", font_size=50)
 bullets = []
 enemies = []
 
@@ -99,7 +99,8 @@ def on_key_press(symbol, modifiers):
 			vlcp.stop()
 			sys.exit(0)
 	elif not playerIsAlive or won:
-		restart()
+		if symbol == key.R:
+			restart()
 
 @window.event
 def on_draw():
@@ -185,4 +186,3 @@ pyglet.clock.schedule_interval(update, 0.01)
 pyglet.clock.schedule_interval(createEnemies, 2)
 
 pyglet.app.run()
-
